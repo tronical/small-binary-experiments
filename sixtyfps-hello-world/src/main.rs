@@ -1,3 +1,4 @@
+sixtyfps::include_modules!();
 fn main() {
-    println!("Hello, world!");
+    App::new();
 }

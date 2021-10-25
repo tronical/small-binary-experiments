@@ -3,19 +3,28 @@
 # Build with the given target as parameter and replaces the section in README.md
 # with the computed sizes
 #
-# For example ./update.sh x86_64-apple-darwin
+# For example ./update.sh cargo +nightly build --target=x86_64-apple-darwin
 
 file_size(){
     case $(uname) in
-        (Darwin)
-            stat -Lf %z -- "$1";;
-        (*) stat -c %s -- "$1"
+        Darwin)
+            stat -Lf %z -- "$1"
+        ;;
+        *) stat -c %s -- "$1"
     esac
 }
 
-target=$1
+for arg in "$@"; do
+    case $arg in
+      --target=*)
+        target=`echo $arg | sed -e "s,--target=,,"`
+        ;;
+      *)
+        ;;
+    esac
+done
 
-cargo +nightly build -Z build-std=panic_abort,std -Z build-std-features=panic_immediate_abort --target=x86_64-apple-darwin --release
+$*
 
 header="|"
 separators="|"

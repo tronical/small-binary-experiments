@@ -16,11 +16,18 @@ Build with nightly, recompile the std library:
 
     `cargo +nightly build -Z build-std=panic_abort,std -Z build-std-features=panic_immediate_abort --target=x86_64-apple-darwin --release`
 
-## Size comparison:
+## Size comparison x86-64:
 
 <!-- begin x86_64-apple-darwin -->
 | rust-minimal | sixtyfps-hello-world |
 |-|-|
-| `51608` | `68040` |
+| `51608` | `167544` |
 <!-- end x86_64-apple-darwin -->
 
+## Size comparison ARMv7:
+
+<!-- begin armv7-unknown-linux-gnueabihf -->
+| rust-minimal | sixtyfps-hello-world |
+|-|-|
+| `22140` | `128700` |
+<!-- end armv7-unknown-linux-gnueabihf -->
