@@ -1,0 +1,5 @@
+export App := Window {
+    Text {
+        text: "Hello World";
+    }
+}

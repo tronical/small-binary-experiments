@@ -1,0 +1,13 @@
+[package]
+name = "sixtyfps-hello-world"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+sixtyfps = { path = "../../sixtyfps/api/sixtyfps-rs", default-features = false, features = ["backend-testing"] }
+
+[build-dependencies]
+sixtyfps-build = { path = "../../sixtyfps/api/sixtyfps-rs/sixtyfps-build" }
