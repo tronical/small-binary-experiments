@@ -1,4 +1,5 @@
 sixtyfps::include_modules!();
 fn main() {
-    App::new();
+    sixtyfps_rendering_backend_mcu::init();
+    App::new().run();
 }

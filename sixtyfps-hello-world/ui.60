@@ -1,4 +1,6 @@
 export App := Window {
+    width: 320px;
+    height: 240px;
     Text {
         text: "Hello World";
     }
